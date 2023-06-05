@@ -19,7 +19,7 @@ async def on_start(_):
 
 
 scheduler = AsyncIOScheduler(timezone="Europe/Moscow")
-scheduler.add_job(send_message_time, trigger='date', run_date=datetime(2023, 5, 24, 15, 14), args=(dp,))
+scheduler.add_job(send_message_time, trigger='date', run_date=datetime(2023, 6, 5, 15, 14), args=(dp,))
 scheduler.start()
 
 if __name__ == '__main__':
