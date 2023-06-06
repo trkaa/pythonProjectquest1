@@ -8,7 +8,6 @@ from texts import text1_1, answer1_1, text1_2, answer1_2, text1_3, answer1_3, te
 from photo import photo1, photo9, photo13, photo18, map, photo29
 from main import d1
 from texts import intro_2
-from keyboards import kb_geo
 from photo import photo2
 
 
@@ -40,17 +39,17 @@ async def print_cb(callback: CallbackQuery):
         await dp.bot.send_message(chat_id=chat_id, text=new_text)
         await sleep(3)
         await dp.bot.send_photo(chat_id=chat_id, photo=photo1, caption=answer1_3, reply_markup=kb_intro_inline)
-    # if callback.data.split(':')[3] == '1_4':
-    #     new_text = user_name + text1_4
-    #     await dp.bot.send_message(chat_id=chat_id, text=new_text)
-    #     await sleep(3)
-    #     # await dp.bot.send_photo(chat_id=chat_id, photo=photo1, caption=answer1_4, reply_markup=kb_intro_inline)
-    #
-    #     if d1 < datetime.datetime.now():
-    #         await dp.bot.send_photo(chat_id=chat_id, photo=photo2, caption=intro_2, reply_markup=kb_geo)
-    #         await dp.bot.send_location(chat_id=chat_id, latitude=55.007479, longitude=38.785832)
-    #     else:
-    #         await dp.bot.send_photo(chat_id=chat_id, photo=photo1, caption=answer1_4, reply_markup=kb_intro_inline)
+    if callback.data.split(':')[3] == '1_4':
+        new_text = user_name + text1_4
+        await dp.bot.send_message(chat_id=chat_id, text=new_text)
+        await sleep(3)
+        await dp.bot.send_photo(chat_id=chat_id, photo=photo1, caption=answer1_4, reply_markup=kb_intro_inline)
+
+        if d1 < datetime.datetime.now():
+            await dp.bot.send_photo(chat_id=chat_id, photo=photo2, caption=intro_2, reply_markup=kb_geo)
+            await dp.bot.send_location(chat_id=chat_id, latitude=55.007479, longitude=38.785832)
+        else:
+            await dp.bot.send_photo(chat_id=chat_id, photo=photo1, caption=answer1_4, reply_markup=kb_intro_inline)
 
 
 @dp.callback_query_handler(intro_data.filter(part='2'))
