@@ -2,11 +2,14 @@ from aiogram.types import CallbackQuery
 from loader import dp, db
 from keyboards import intro_data, kb_intro_inline, kb_geo
 from asyncio import sleep
+import datetime
 from texts import text1_1, answer1_1, text1_2, answer1_2, text1_3, answer1_3, text1_4, answer1_4, text_rbank, \
     text_lbank, plotina_1_2, text_ilyas, plotina_5, bebeh_user1, bebeh_user2, bebeh2, upond, ucrypt, crypt2
 from photo import photo1, photo9, photo13, photo18, map, photo29
-
-
+from main import d1
+from texts import intro_2
+from keyboards import kb_geo
+from photo import photo2
 def rite_user_state_callback(current_state: str, callback: CallbackQuery):
     chat_id = callback.message.chat.id
     current_state = (current_state, chat_id)
@@ -40,6 +43,10 @@ async def print_cb(callback: CallbackQuery):
         await dp.bot.send_message(chat_id=chat_id, text=new_text)
         await sleep(3)
         await dp.bot.send_photo(chat_id=chat_id, photo=photo1, caption=answer1_4, reply_markup=kb_intro_inline)
+        if d1 < datetime.datetime.now():
+            await dp.bot.send_photo(chat_id=chat_id, photo=photo2, caption=intro_2, reply_markup=kb_geo)
+            await dp.bot.send_location(chat_id=chat_id, latitude=55.007479, longitude=38.785832)
+
 
 
 @dp.callback_query_handler(intro_data.filter(part='2'))
