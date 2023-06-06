@@ -16,7 +16,7 @@ async def on_start(_):
 
     except:
         print('DB failure')
-d1 = datetime(2023, 6, 6, 12, 13)
+d1 = datetime(2023, 6, 6, 14, 22)
 scheduler = AsyncIOScheduler(timezone="Europe/Moscow")
 scheduler.add_job(send_message_time, trigger='date', run_date=d1, args=(dp,))
 scheduler.start()
