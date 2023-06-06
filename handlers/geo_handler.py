@@ -55,9 +55,9 @@ def rite_user_state(current_state: str, message: Message):
 
 @dp.message_handler(content_types='location')
 async def get_geo(message: Message):
-    print(message['location'])
+    # print(message['location'])
     s = int(db.load_state(message.from_user.id)[0])
-    print(s)
+    # print(s)
     if s == 1:
         distance = get_distance(point_1, message)
         if distance < float(10.0):

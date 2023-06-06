@@ -20,10 +20,10 @@ def rite_user_state_callback(current_state: str, callback: CallbackQuery):
 @dp.callback_query_handler(intro_data.filter(part='1'))
 async def print_cb(callback: CallbackQuery):
     user_name = str(f'{callback.from_user.first_name}:\n')
-    print(callback.data)
+    # print(callback.data)
     chat_id = callback.message.chat.id
     # mess_id = callback.message.message_id
-    print(callback.data.split(':')[3])
+    # print(callback.data.split(':')[3])
     if callback.data.split(':')[3] == 'Когда?':
         new_text = user_name + text1_1
         await dp.bot.send_message(chat_id=chat_id, text=new_text)
@@ -44,22 +44,19 @@ async def print_cb(callback: CallbackQuery):
         await dp.bot.send_message(chat_id=chat_id, text=new_text)
         await sleep(3)
         await dp.bot.send_photo(chat_id=chat_id, photo=photo1, caption=answer1_4, reply_markup=kb_intro_inline)
-
         if d1 < datetime.datetime.now():
             await dp.bot.send_photo(chat_id=chat_id, photo=photo2, caption=intro_2, reply_markup=kb_geo)
             await dp.bot.send_location(chat_id=chat_id, latitude=55.007479, longitude=38.785832)
-        else:
-            await dp.bot.send_photo(chat_id=chat_id, photo=photo1, caption=answer1_4, reply_markup=kb_intro_inline)
 
 
 @dp.callback_query_handler(intro_data.filter(part='2'))
 async def print_cb(callback: CallbackQuery):
     s = int(db.load_state(callback.message.chat.id)[0])
     user_name = str(f'{callback.from_user.first_name}:\n')
-    print(callback.data)
+    # print(callback.data)
     chat_id = callback.message.chat.id
     # mess_id = callback.message.message_id
-    print(callback.data.split(':')[3])
+    # print(callback.data.split(':')[3])
     if callback.data.split(':')[3] == 'rbank':
         if s == 6:
             new_text = user_name + text_rbank
@@ -83,10 +80,10 @@ async def print_cb(callback: CallbackQuery):
 async def print_cb(callback: CallbackQuery):
     s = int(db.load_state(callback.message.chat.id)[0])
     user_name = str(f'{callback.from_user.first_name}:\n')
-    print(callback.data)
+    # print(callback.data)
     chat_id = callback.message.chat.id
     # mess_id = callback.message.message_id
-    print(callback.data.split(':')[3])
+    # print(callback.data.split(':')[3])
     if callback.data.split(':')[3] == 'ilyas':
         if s == 8:
             new_text = user_name + text_ilyas
@@ -102,10 +99,10 @@ async def print_cb(callback: CallbackQuery):
 async def print_cb(callback: CallbackQuery):
     s = int(db.load_state(callback.message.chat.id)[0])
     user_name = str(f'{callback.from_user.first_name}:\n')
-    print(callback.data)
+    # print(callback.data)
     chat_id = callback.message.chat.id
     # mess_id = callback.message.message_id
-    print(callback.data.split(':')[3])
+    # print(callback.data.split(':')[3])
     if callback.data.split(':')[3] == 'bebeh1':
         if s == 10:
             new_text = user_name + bebeh_user1
@@ -133,10 +130,10 @@ async def print_cb(callback: CallbackQuery):
 async def print_cb(callback: CallbackQuery):
     s = int(db.load_state(callback.message.chat.id)[0])
     user_name = str(f'{callback.from_user.first_name}:\n')
-    print(callback.data)
+    # print(callback.data)
     chat_id = callback.message.chat.id
     # mess_id = callback.message.message_id
-    print(callback.data.split(':')[3])
+    # print(callback.data.split(':')[3])
     if callback.data.split(':')[3] == 'pond':
         if s == 12:
             new_text = user_name + upond
@@ -151,10 +148,10 @@ async def print_cb(callback: CallbackQuery):
 async def print_cb(callback: CallbackQuery):
     s = int(db.load_state(callback.message.chat.id)[0])
     user_name = str(f'{callback.from_user.first_name}:\n')
-    print(callback.data)
+    # print(callback.data)
     chat_id = callback.message.chat.id
     # mess_id = callback.message.message_id
-    print(callback.data.split(':')[3])
+    # print(callback.data.split(':')[3])
     if callback.data.split(':')[3] == 'crypt':
         if s == 16:
             new_text = user_name + ucrypt
